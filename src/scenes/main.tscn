@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://components/player_ship/player_ship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/tracker.gd" type="Script" id=2]
+[ext_resource path="res://components/enemy_ship/enemy_ship.tscn" type="PackedScene" id=3]
+
+[node name="main" type="Node2D"]
+
+[node name="camera" type="Camera2D" parent="."]
+
+anchor_mode = 0
+rotating = false
+current = true
+zoom = Vector2( 4, 4 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="bullets" type="Node2D" parent="."]
+
+[node name="player_ship" parent="." instance=ExtResource( 1 )]
+
+position = Vector2( 5834, 1170 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="enemy_ship" parent="." instance=ExtResource( 3 )]
+
+position = Vector2( 3658, 2238 )
+_sections_unfolded = [ "Transform" ]
+
+
