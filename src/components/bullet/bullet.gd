@@ -166,7 +166,7 @@ func set_kill_after_time(val):
 func set_kill_on_collide(val):
 	kill_on_collide = val
 	if val:
-		connect("body_enter", self, "kill")
+		connect("body_entered", self, "kill")
 
 func set_kill_travel_dist(val):
 	kill_travel_dist = val
@@ -179,10 +179,10 @@ func set_kill_viewport_exit(val):
 		if !_vis_notifier:
 			_vis_notifier = VisibilityNotifier2D.new()
 			add_child(_vis_notifier)
-		_vis_notifier.connect("exit_screen", self, "kill")
+		_vis_notifier.connect("screen_exited", self, "kill")
 	else:
 		if _vis_notifier:
-			_vis_notifier.disconnect("exit_screen", self, "kill")
+			_vis_notifier.disconnect("screen_exited", self, "kill")
 
 func resize_to(ref, resizable):
 	var size = ref.get_item_rect().size
