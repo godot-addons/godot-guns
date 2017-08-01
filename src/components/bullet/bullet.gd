@@ -1,5 +1,6 @@
 extends Node2D
 
+const BULLET_OWNER_NODE = "/root/main/bullets"
 const CHILD_BULLETS_NAME = "ChildBullets"
 const SPRITE_NODE_NAME = "Sprite"
 const COLLIDER_NODE_NAME = "collision"
@@ -63,23 +64,24 @@ func _fixed_process(delta):
 
 func setup(shooting_gun):
 	gun_shot_from = shooting_gun
-	#set_z(min(get_z(), gun_shot_from.get_z() - 1)) #ensure behind gun
-	z = min(z, gun_shot_from.z - 1) #ensure behind gun
+	set_z(min(get_z(), gun_shot_from.get_z() - 1)) #ensure behind gun
+	#z = min(z, gun_shot_from.z - 1) #ensure behind gun
 
 	#choose parent
-	var parent = null
-	var root_node = gun_shot_from.get_node("/root")
+	var node_parent
+	#var root_node = gun_shot_from.get_node("/root")
+	var root_node = gun_shot_from.get_node(BULLET_OWNER_NODE)
 
 	if follow_gun:
-		parent = gun_shot_from.get_node(CHILD_BULLETS_NAME)
+		node_parent = gun_shot_from.get_node(CHILD_BULLETS_NAME)
 	else:
-		parent = root_node
+		node_parent = root_node
 
-	parent.add_child(self)
+	node_parent.add_child(self)
 
 	#set bullet position
 	var offset = Vector2(fire_pos_offset[0], fire_pos_offset[1])
-	if parent == root_node:
+	if node_parent == root_node:
 		offset += gun_shot_from.get_bullet_start_pos()
 
 	#set_pos(offset)
@@ -87,6 +89,7 @@ func setup(shooting_gun):
 
 	#set_global_rot(gun_shot_from.get_global_rot())
 	global_rotation = gun_shot_from.global_rotation
+	
 	#_set_vel_from_angle(get_global_rot())
 	_set_vel_from_angle(global_rotation)
 

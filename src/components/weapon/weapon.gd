@@ -1,8 +1,8 @@
 extends Node2D
 
 const BULLET_OWNER_NODE = "/root/main/bullets"
-const SPRITE_NODE_NAME = "sprite"
 const CHILD_BULLETS_NAME = "ChildBullets"
+const SPRITE_NODE_NAME = "sprite"
 
 var can_fire = true setget set_can_fire
 

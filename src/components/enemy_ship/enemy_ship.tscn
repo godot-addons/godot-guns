@@ -71,9 +71,8 @@ texture = ExtResource( 1 )
 [node name="weapon" parent="." instance=ExtResource( 2 )]
 
 rotation = 0.0
-fire_delay = 0.001
 reload_delay = 1.5
-clip_size = 3000
+clip_size = 10
 shots = "res://components/bullet/enemy_bullet.tscn"
 
 [node name="collision" type="CollisionShape2D" parent="."]

@@ -1,11 +1,11 @@
 config_version=3
 
+config_version=null
+
 [application]
 
 config/name="src"
 run/main_scene="res://scenes/main.tscn"
-run/disable_stdout=true
-run/disable_stderr=true
 config/icon="res://icon.png"
 
 [debug]
@@ -27,4 +27,3 @@ name_num_separator=2
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=0
-quality/2d/use_pixel_snap=true
