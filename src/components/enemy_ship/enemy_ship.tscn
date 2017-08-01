@@ -62,7 +62,7 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
-_sections_unfolded = [ "Angular", "Linear" ]
+_sections_unfolded = [ "Angular", "Collision", "Linear" ]
 
 [node name="Sprite" type="Sprite" parent="."]
 
