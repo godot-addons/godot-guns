@@ -48,6 +48,7 @@ func set_clip_size(val):
 		_ammo_left_in_clip = val
 
 func set_can_fire(val):
+	#print("set_can_fire")
 	can_fire = val
 	if val:
 		emit_signal("can_fire_again")
@@ -66,6 +67,7 @@ func set_ammo(val):
 		_ammo_left_in_clip = ammo
 
 func fire():
+	#print("fire!")
 	if !can_fire:
 		return
 

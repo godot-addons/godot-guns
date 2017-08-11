@@ -29,7 +29,7 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Angular", "Collision", "Linear", "Pickable" ]
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Pickable", "Transform", "Z" ]
 fire_pos_offset = [ 0.0, 0.0 ]
 follow_gun = false
 fit_collider_to_sprite = true
@@ -43,6 +43,7 @@ kill_after_time = -1
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation" ]
 
 [node name="collision" type="CollisionShape2D" parent="."]
 

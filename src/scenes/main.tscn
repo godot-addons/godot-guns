@@ -14,7 +14,7 @@ script = ExtResource( 1 )
 anchor_mode = 0
 rotating = false
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 1.5, 1.5 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -36,13 +36,13 @@ editor_draw_drag_margin = false
 
 [node name="player_ship" parent="." instance=ExtResource( 2 )]
 
-position = Vector2( 2891.44, 518.7 )
+position = Vector2( 2299.85, 723.142 )
 script = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="enemy_ship" parent="." instance=ExtResource( 4 )]
 
-position = Vector2( 1217.92, 1454.81 )
-_sections_unfolded = [ "Angular", "Linear", "Transform" ]
+position = Vector2( 1325.47, 752.821 )
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
 
 

@@ -91,7 +91,7 @@ func setup(shooting_gun):
 	global_rotation = gun_shot_from.global_rotation
 	
 	#_set_vel_from_angle(get_global_rot())
-	_set_vel_from_angle(global_rotation)
+	_set_vel_from_angle(global_rotation_deg)
 
 func _set_vel_from_angle(angle):
 	var speed = sqrt(get_linear_velocity().length_squared()) #magnitude of rigid body's linear velocity
@@ -130,7 +130,7 @@ func _get_PID_output(currentError, delta):
 
 func _track_target(delta):
 	var angle_btw = global_position.angle_to_point(target.global_position) + PI / 2
-	var error = global_rotation - angle_btw
+	var error = global_rotation_deg - angle_btw
 	#deal with angle discontinuity
 	#https://stackoverflow.com/questions/10697844/how-to-deal-with-the-discontinuity-of-yaw-angle-at-180-degree
 	if error > PI:
@@ -140,7 +140,7 @@ func _track_target(delta):
 
 	var torque = _get_PID_output(error, delta)
 	set_applied_torque(torque)
-	_set_vel_from_angle(global_rotation)
+	_set_vel_from_angle(global_rotation_deg)
 
 func set_fit_collider_to_sprite(val):
 	fit_collider_to_sprite = val
