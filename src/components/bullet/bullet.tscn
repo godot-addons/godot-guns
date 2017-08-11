@@ -43,7 +43,7 @@ kill_after_time = -1
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Animation" ]
+_sections_unfolded = [ "Animation", "Transform" ]
 
 [node name="collision" type="CollisionShape2D" parent="."]
 
