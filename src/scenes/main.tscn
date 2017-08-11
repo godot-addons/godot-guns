@@ -36,9 +36,10 @@ editor_draw_drag_margin = false
 
 [node name="player_ship" parent="." instance=ExtResource( 2 )]
 
+visible = false
 position = Vector2( 2299.85, 723.142 )
 script = ExtResource( 3 )
-_sections_unfolded = [ "Collision", "Transform" ]
+_sections_unfolded = [ "Collision", "Pause", "Transform" ]
 
 [node name="enemy_ship" parent="." instance=ExtResource( 4 )]
 
