@@ -91,10 +91,11 @@ func setup(shooting_gun):
 	global_rotation = gun_shot_from.global_rotation
 	
 	#_set_vel_from_angle(get_global_rot())
-	_set_vel_from_angle(global_rotation_deg)
+	_set_vel_from_angle(global_rotation)
 
 func _set_vel_from_angle(angle):
-	var speed = sqrt(get_linear_velocity().length_squared()) #magnitude of rigid body's linear velocity
+	#magnitude of rigid body's linear velocity
+	var speed = sqrt(get_linear_velocity().length_squared()) 
 	var vx = speed * cos(-angle) #idk why this is negative?
 	var vy = speed * sin(-angle)
 	set_linear_velocity(Vector2(vx, vy))
@@ -102,16 +103,16 @@ func _set_vel_from_angle(angle):
 #requires rigid_body to be in Kinematic mode
 func _scale_bullet():
 	#var size = get_scale()
-	var size = scale
-	var new_x = size.x + size_scaling_velocity[0]
-	var new_y = size.y + size_scaling_velocity[1]
+	#var size = scale
+	var new_x = scale.x + size_scaling_velocity[0]
+	var new_y = scale.y + size_scaling_velocity[1]
 
 	if max_size_scale != null:
 		if new_x > max_size_scale[0]:
-			new_x = size.x
+			new_x = scale.x
 
 		if new_y > max_size_scale[1]:
-			new_y = size.y
+			new_y = scale.y
 
 	#set_scale(Vector2(new_x, new_y))
 	scale = Vector2(new_x, new_y)
@@ -131,6 +132,7 @@ func _get_PID_output(currentError, delta):
 func _track_target(delta):
 	var angle_btw = global_position.angle_to_point(target.global_position) + PI / 2
 	var error = global_rotation_deg - angle_btw
+	#var error = global_rotation - angle_btw
 	#deal with angle discontinuity
 	#https://stackoverflow.com/questions/10697844/how-to-deal-with-the-discontinuity-of-yaw-angle-at-180-degree
 	if error > PI:
