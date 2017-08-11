@@ -72,8 +72,8 @@ texture = ExtResource( 1 )
 
 _sections_unfolded = [ "Transform", "Z" ]
 fire_delay = 0.5
-reload_delay = 1.5
-clip_size = 2000
+reload_delay = 5.0
+clip_size = 5
 shots = "res://components/bullet/enemy_bullet.tscn"
 
 [node name="collision" type="CollisionShape2D" parent="."]
