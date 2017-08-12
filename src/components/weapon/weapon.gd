@@ -108,4 +108,5 @@ func fire():
 			_timer_node.start()
 
 func get_bullet_start_pos():
-	return sprite.global_position
+	#return sprite.global_position
+	return global_position

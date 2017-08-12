@@ -31,7 +31,7 @@ length = 8.0
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("weapon:global_rotation_deg")
+tracks/0/path = NodePath(".:global_rotation_deg")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -62,7 +62,7 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
-_sections_unfolded = [ "Angular", "Collision", "Linear" ]
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -91,19 +91,20 @@ root_node = NodePath("..")
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
-autoplay = ""
-_sections_unfolded = [ "Playback", "playback" ]
+autoplay = "move and shaker"
+_sections_unfolded = [ "Pause", "Playback", "playback" ]
 
 [node name="weapon_animation" type="AnimationPlayer" parent="."]
 
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-root_node = NodePath("..")
+root_node = NodePath("../weapon")
 "anims/move and shaker" = SubResource( 2 )
 "anims/rot and shaker" = SubResource( 3 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "rot and shaker"
+_sections_unfolded = [ "Playback", "playback" ]
 
 

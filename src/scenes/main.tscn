@@ -31,18 +31,19 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
+_sections_unfolded = [ "Transform" ]
 
 [node name="bullets" type="Node2D" parent="."]
 
 [node name="player_ship" parent="." instance=ExtResource( 2 )]
 
-position = Vector2( 4284.45, 1870.08 )
+position = Vector2( 1889.24, 900.873 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Collision", "Pause", "Transform" ]
 
 [node name="enemy_ship" parent="." instance=ExtResource( 4 )]
 
-position = Vector2( 3310.07, 1899.76 )
+position = Vector2( 914.864, 930.553 )
 _sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
 
 

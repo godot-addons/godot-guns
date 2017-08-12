@@ -53,9 +53,8 @@ texture = ExtResource( 1 )
 
 [node name="weapon" parent="." instance=ExtResource( 2 )]
 
-fire_delay = 0.1
-reload_delay = 5.0
-clip_size = 2
+fire_delay = 5.0
+reload_delay = 1.0
 
 [node name="collision" type="CollisionShape2D" parent="."]
 
