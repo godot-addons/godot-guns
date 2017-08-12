@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://components/bullet/bullet.gd" type="Script" id=1]
-[ext_resource path="res://components/bullet/laser_blue.png" type="Texture" id=2]
+[ext_resource path="res://components/projectile/bullet/bullet.gd" type="Script" id=1]
+[ext_resource path="res://components/projectile/bullet/laser_red.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 5.3148, 5.13721 )
 
 [node name="Bullet" type="RigidBody2D"]
 
@@ -24,12 +24,12 @@ contacts_reported = 1
 contact_monitor = true
 sleeping = false
 can_sleep = true
-linear_velocity = Vector2( 500, 0 )
+linear_velocity = Vector2( 600, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Angular", "Collision", "Linear", "Pickable", "Transform", "Z" ]
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
 fire_pos_offset = [ 0.0, 0.0 ]
 follow_gun = false
 fit_collider_to_sprite = true
@@ -38,15 +38,17 @@ max_size_scale = [ 0.0, 0.0 ]
 kill_on_collide = true
 kill_viewport_exit = true
 kill_travel_dist = -1
-kill_after_time = -1
+kill_after_time = 10
 
 [node name="Sprite" type="Sprite" parent="."]
 
+scale = Vector2( 0.2, 1 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="collision" type="CollisionShape2D" parent="."]
 
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility", "Z" ]
 
 

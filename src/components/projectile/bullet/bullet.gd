@@ -31,12 +31,12 @@ var _I = 0
 var _D = 0
 
 # PID controller gain values
-#var _PID_Kp = 1000.0
-#var _PID_Ki = 100.0
+var _PID_Kp = 1000.0
+var _PID_Ki = 50.0
+var _PID_Kd = 100.0
+#var _PID_Kp = 100.0
+#var _PID_Ki = 1000.0
 #var _PID_Kd = 1000.0
-var _PID_Kp = 100.0
-var _PID_Ki = 1000.0
-var _PID_Kd = 1000.0
 
 var _traveled_dist = 0
 var _prev_pos = null
@@ -124,15 +124,15 @@ func _get_PID_output(current_error, delta):
 
 # Something in this function needs some fixing
 func _track_target(delta):
-	var angle_btw = global_position.angle_to_point(target.global_position) - PI / 2
+	var angle_btw = global_position.angle_to_point(target.global_position)
 	var error = global_rotation - angle_btw
 
 	# deal with angle discontinuity
 	# https://stackoverflow.com/questions/10697844/how-to-deal-with-the-discontinuity-of-yaw-angle-at-180-degree
 	if error > PI:
-		 error = error - PI * 2
-	elif error < -PI / 2:
-		 error = error + PI * 2
+		 error -= PI * 2
+	elif error < -PI:
+		 error += PI * 2
 
 	var torque = _get_PID_output(error, delta)
 	set_applied_torque(torque)

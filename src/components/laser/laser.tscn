@@ -1,16 +1,48 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://components/laser/laser.gd" type="Script" id=1]
 
+[sub_resource type="Animation" id=1]
+
+resource_name = "pulse"
+length = 5.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 5.0 ]
+}
+
 [node name="laser" type="Line2D"]
 
-points = PoolVector2Array( 0, 0, 0, 0 )
-width = 10.0
+points = PoolVector2Array( 0, 0, 100, 0 )
+width = 1.43329
 default_color = Color( 0.4, 0.5, 1, 1 )
 texture_mode = 871108256
 sharp_limit = 2.0
 round_precision = 8
 script = ExtResource( 1 )
 _sections_unfolded = [ "Border", "Capping", "Fill" ]
+kill_after_time = 5
+
+[node name="pulse" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/pulse = SubResource( 1 )
+next/pulse = "pulse"
+playback/active = true
+playback/speed = 1.0
+blend_times = [ "pulse", "pulse", 4.0 ]
+autoplay = "pulse"
+_sections_unfolded = [ "Playback", "playback" ]
 
 
