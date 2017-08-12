@@ -31,12 +31,12 @@ var _I = 0
 var _D = 0
 
 # PID controller gain values
-#var _PID_Kp = 1000.0
-#var _PID_Ki = 100.0
-#var _PID_Kd = 1000.0
-var _PID_Kp = 2000.0
-var _PID_Ki = 50.0
-var _PID_Kd = 100.0
+var _PID_Kp = 1000.0
+var _PID_Ki = 100.0
+var _PID_Kd = 1000.0
+#var _PID_Kp = 2000.0
+#var _PID_Ki = 1000.0
+#var _PID_Kd = 100.0
 
 var _traveled_dist = 0
 var _prev_pos = null
@@ -131,7 +131,10 @@ func _get_PID_output(current_error, delta):
 	_D = (_P - _prev_error) / delta
 	_prev_error = current_error
 
-	return _P * _PID_Kp + _I * _PID_Ki + _D * _PID_Kd
+	return _I * _PID_Ki + _D * _PID_Kd
+	#return _P * _PID_Kp + _D * _PID_Kd
+	#return _P * _PID_Kp + _I * _PID_Ki
+	#return _P * _PID_Kp + _I * _PID_Ki + _D * _PID_Kd
 
 # Something in this function needs some fixing
 func _track_target(delta):
