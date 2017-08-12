@@ -5,7 +5,6 @@
 
 [node name="weapon" type="Node2D"]
 
-rotation = -0.785398
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 auto_fire = true

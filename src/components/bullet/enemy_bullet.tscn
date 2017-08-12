@@ -24,17 +24,17 @@ contacts_reported = 1
 contact_monitor = true
 sleeping = false
 can_sleep = true
-linear_velocity = Vector2( 500, 0 )
+linear_velocity = Vector2( 400, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Angular", "Collision", "Linear" ]
-fire_pos_offset = [ 0.0, 0.0 ]
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
+fire_pos_offset = [ 0, 0 ]
 follow_gun = false
 fit_collider_to_sprite = true
-size_scaling_velocity = [ 0.0, 0.0 ]
-max_size_scale = [ 0.0, 0.0 ]
+size_scaling_velocity = [ 0, 0 ]
+max_size_scale = [ 0, 0 ]
 kill_on_collide = true
 kill_viewport_exit = true
 kill_travel_dist = -1
@@ -43,6 +43,7 @@ kill_after_time = -1
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Transform", "Z" ]
 
 [node name="collision" type="CollisionShape2D" parent="."]
 
