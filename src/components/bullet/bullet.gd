@@ -31,12 +31,12 @@ var _I = 0
 var _D = 0
 
 # PID controller gain values
-var _PID_Kp = 1000.0
+#var _PID_Kp = 1000.0
+#var _PID_Ki = 100.0
+#var _PID_Kd = 1000.0
+var _PID_Kp = 200.0
 var _PID_Ki = 100.0
-var _PID_Kd = 1000.0
-#var _PID_Kp = 2000.0
-#var _PID_Ki = 1000.0
-#var _PID_Kd = 100.0
+var _PID_Kd = 200.0
 
 var _traveled_dist = 0
 var _prev_pos = null
@@ -98,9 +98,9 @@ func setup(shooting_gun):
 	global_rotation = gun_shot_from.global_rotation
 
 	#_set_vel_from_angle(get_global_rot())
-	_set_vel_from_angle(global_rotation)
+	_set_vel_from_angle(global_rotation, 1.0)
 
-func _set_vel_from_angle(angle):
+func _set_vel_from_angle(angle, delta):
 	#magnitude of rigid body's linear velocity
 	var speed = sqrt(get_linear_velocity().length_squared())
 	#var vx = speed * cos(-angle) #idk why this is negative?
@@ -131,16 +131,17 @@ func _get_PID_output(current_error, delta):
 	_D = (_P - _prev_error) / delta
 	_prev_error = current_error
 
-	return _I * _PID_Ki + _D * _PID_Kd
+	#return _I * _PID_Ki + _D * _PID_Kd
 	#return _P * _PID_Kp + _D * _PID_Kd
 	#return _P * _PID_Kp + _I * _PID_Ki
-	#return _P * _PID_Kp + _I * _PID_Ki + _D * _PID_Kd
+	return _P * _PID_Kp + _I * _PID_Ki + _D * _PID_Kd
 
 # Something in this function needs some fixing
 func _track_target(delta):
 	var angle_btw = global_position.angle_to_point(target.global_position) - PI / 2
-	var error = global_rotation - angle_btw
+	#var error = global_rotation - angle_btw
 	#error = rad2deg(error)
+	var error = atan2(global_position.x - target.global_position.x, global_position.y - target.global_position.y)
 
 	#deal with angle discontinuity
 	#https://stackoverflow.com/questions/10697844/how-to-deal-with-the-discontinuity-of-yaw-angle-at-180-degree
@@ -148,15 +149,18 @@ func _track_target(delta):
 		 error = error - PI * 2
 	elif error < -PI:
 		 error = error + PI * 2
+#	else:
+#		print("hit=", error)
 
 	#if error >= 180:
 	#	error = error - 360 * delta
 	#elif error <= -180:
 	#	error = error + 360 * delta
 
+	#var torque = _get_PID_output(error, delta)
 	var torque = _get_PID_output(error, delta)
 	set_applied_torque(torque)
-	_set_vel_from_angle(global_rotation)
+	_set_vel_from_angle(global_rotation, delta)
 
 func set_fit_collider_to_sprite(val):
 	fit_collider_to_sprite = val

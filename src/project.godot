@@ -15,6 +15,7 @@ settings/stdout/print_fps=true
 window/size/width=1920
 window/size/height=1080
 window/dpi/allow_hidpi=true
+window/vsync/use_vsync=false
 window/stretch/aspect="keep"
 
 [gui]
