@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://components/player_ship/player_ship.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/tracker.gd" type="Script" id=3]
 [ext_resource path="res://components/enemy_ship/enemy_ship.tscn" type="PackedScene" id=4]
 [ext_resource path="res://components/enemy_ship_2/enemy_ship_2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/enemy_ship_2.gd" type="Script" id=6]
 
 [node name="main" type="Node2D"]
 
@@ -38,17 +39,18 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="player_ship" parent="." instance=ExtResource( 2 )]
 
-position = Vector2( 1889.24, 900.873 )
+position = Vector2( 2214.6, 1068.69 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Collision", "Pause", "Transform" ]
 
 [node name="enemy_ship" parent="." instance=ExtResource( 4 )]
 
-position = Vector2( 914.864, 930.553 )
+position = Vector2( 1346.39, 1088.09 )
 
 [node name="enemy_ship_2" parent="." instance=ExtResource( 5 )]
 
-position = Vector2( 1338.77, 456.557 )
-script = ExtResource( 3 )
+position = Vector2( 1770.29, 614.097 )
+rotation = 0.964369
+script = ExtResource( 6 )
 
 
