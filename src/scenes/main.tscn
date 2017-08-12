@@ -14,7 +14,7 @@ script = ExtResource( 1 )
 anchor_mode = 0
 rotating = false
 current = true
-zoom = Vector2( 4, 4 )
+zoom = Vector2( 3, 3 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -44,6 +44,5 @@ _sections_unfolded = [ "Collision", "Pause", "Transform" ]
 [node name="enemy_ship" parent="." instance=ExtResource( 4 )]
 
 position = Vector2( 914.864, 930.553 )
-_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform" ]
 
 
