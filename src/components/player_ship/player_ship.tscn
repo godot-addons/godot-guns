@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://components/player_ship/player_ship.png" type="Texture" id=1]
-[ext_resource path="res://components/weapon/weapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://components/projectile/weapon/weapon.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 

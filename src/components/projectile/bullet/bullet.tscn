@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://components/bullet/bullet.gd" type="Script" id=1]
-[ext_resource path="res://components/bullet/laser_blue.png" type="Texture" id=2]
+[ext_resource path="res://components/projectile/bullet/bullet.gd" type="Script" id=1]
+[ext_resource path="res://components/projectile/bullet/laser_blue.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -38,7 +38,7 @@ max_size_scale = [ 0.0, 0.0 ]
 kill_on_collide = true
 kill_viewport_exit = true
 kill_travel_dist = -1
-kill_after_time = -1
+kill_after_time = 10
 
 [node name="Sprite" type="Sprite" parent="."]
 

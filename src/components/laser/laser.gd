@@ -2,6 +2,8 @@ extends Line2D
 
 const BULLET_OWNER_NODE = "/root/main/bullets"
 
+export(int) var kill_after_time = -1 setget set_kill_after_time
+
 var target
 var gun_shot_from
 var deleted = false
@@ -23,6 +25,17 @@ func setup(shooting_gun):
 
 func set_target(target):
 	self.target = target
+
+func set_kill_after_time(val):
+	kill_after_time = val
+	if val > 0:
+		var timer = Timer.new()
+		timer.connect("timeout", self, "kill")
+		timer.set_one_shot(true)
+		timer.set_wait_time(kill_after_time)
+		add_child(timer)
+		timer.start()
+
 
 func _track_target(delta):
 	set_point_pos(0, gun_shot_from.global_position)
