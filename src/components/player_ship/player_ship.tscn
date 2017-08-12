@@ -14,7 +14,7 @@ length = 2.0
 loop = true
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("weapon:global_rotation_deg")
+tracks/0/path = NodePath("weapon_1:global_rotation_deg")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -51,7 +51,7 @@ _sections_unfolded = [ "Collision" ]
 
 texture = ExtResource( 1 )
 
-[node name="weapon" parent="." instance=ExtResource( 2 )]
+[node name="weapon_1" parent="." instance=ExtResource( 2 )]
 
 fire_delay = 0.1
 reload_delay = 1.0
